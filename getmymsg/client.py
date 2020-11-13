@@ -1,15 +1,16 @@
 #!/usr/bin/env python
+# coding=utf-8
 
 import signal
 import socket
 import logging
-import hashlib
+from hashlib import md5
 import threading
 import time
 import socket
 import re
 import base64
-from .config import Config
+from config import Config
 
 
 class IdentificationException(Exception):
@@ -38,7 +39,7 @@ class ChkMsgException(Exception):
         Exception para msglen establishment
         """
         def __init__(self):
-                self.error = "No se logro obtener el mensaje"
+                self.error = "No se logro chequear el mensaje"
 
 class ByeCmdException(Exception):
 	"""
@@ -85,7 +86,7 @@ class Client():
 		self.__conf = None
 		self.__sock = None
 
-	def config(self)
+	def config(self):
 		if self.__conf is None:
 			self.__conf = Config()
 		return self.__conf
@@ -110,9 +111,7 @@ class Client():
 
 
 	def prepare(self):
-	        """
-        	Preparación del servidor
-        	"""
+        	# Preparación del servidor
         	addr = self.config.bind_addr
 		addr_i = self.config.bind_addr_h
         	port = self.config.bind_port
@@ -131,9 +130,7 @@ class Client():
 		logging.info('Conexion creada correctamente')
 
 	def start(self):
-		"""
-	        Punto de partida de la ejecución del servidor
-        	"""
+	        # Punto de partida de la ejecución del servidor
         	# manejo de la señal de finalización de ejecución
         	signal.signal(signal.SIGINT, self.stop)
         	# Configuración del logger
@@ -143,14 +140,12 @@ class Client():
             		format=self.config.log['format']
         	)
         	self.prepare()
-		#Ingresar aca metodo para establecer los parametros si existen o definirlos por el archivo config.
+		# Ingresar aca metodo para establecer los parametros si existen o definirlos por el archivo config.
 		self.getmsg()	
         	return 0
 
 	def stop(self, sig, frame):
-		"""
-		Manejo de salida del programa
-	        """
+		# Manejo de salida del programa
 		if self.on_work:
 	        	self.__working = False
 			try:
@@ -162,7 +157,7 @@ class Client():
             		exit(0)
 
 	def validate_msg(info):
-		if info[0] != 'OK'
+		if info[0] != 'OK':
 			raise Exception()
 
 	def getmsg(self):
@@ -176,7 +171,7 @@ class Client():
 	def identification_cmd(self):
 		logging.info('Iniciando identificacion con el servidor')
 		try:
-			self.conn.send(IDENTIFICATION_CMD + self.config.user)
+			self.conn.send((IDENTIFICATION_CMD + self.config.user).encode())
 			data = self.conn.recv(1024)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			validate_msg(info)
@@ -188,7 +183,7 @@ class Client():
 	def msglen_cmd(self):
 		logging.info('Iniciando solicitud de longitud de mensaje')
 		try:
-			self.conn.send(MSGLEN_CMD)
+			self.conn.send((MSGLEN_CMD).encode())
 			data = self.conn.recv(1024)
 			self.msglen = data.decode('utf-8').strip('\n').split(' ')
 			validate_msg(info)
@@ -200,26 +195,26 @@ class Client():
 	def givememsg_cmd(self):
 		logging.info('Iniciando la recepcion del mensaje')
 		try:
-			self.conn.send(GIVEMEMSG_CMD + self.config.bind_port_h)
+			self.conn.send((GIVEMEMSG_CMD + self.config.bind_port_h).encode())
 			data = self.msgudp_sock.recvfrom(self.msglen)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			validate_msg(info)
 			self.msgudp_sock.close()
 			self.msg = info[1]
 		except:
-			logging.warn('Error al intentar solicitar el mensaje : %s' %info[1]
+			logging.warn('Error al intentar solicitar el mensaje : %s' %info[1])
 			raise GiveMsgException()
 		logging.info('Mensaje recibido con exito')
 
 	def chkmsg_cmd(self):
 		logging.info('Iniciando la comprobacion del mensaje')
                 try:
-                        self.conn.send(CHKMSG_CMD + hashlib.md5(self.msg))
+                        self.conn.send((CHKMSG_CMD + md5(self.msg)).encode())
                         data = self.conn.recv(1024)
                         info = data.decode('utf-8').strip('\n').split(' ')
                         validate_msg(info)
                 except:
-                        logging.warn('Error al intentar chequear el mensaje : %s' %info[1]
+			logging.warn('Error al intentar chequear el mensaje : %s' %info[1])
                         raise ChkMsgException()
                 logging.info('Mensaje comprobado con exito')
 
@@ -228,6 +223,6 @@ class Client():
                 try:
 			self.stop()
                 except:
-                        logging.warn('Error al intentar terminar la conexion'
+                        logging.warn('Error al intentar terminar la conexion')
                         raise ByeCmdException()
                 logging.info('Conexion terminada con exito')
