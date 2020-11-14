@@ -135,6 +135,7 @@ class Client():
         	# manejo de la señal de finalización de ejecución
         	signal.signal(signal.SIGINT, self.stop)
         	# Configuración del logger
+		print(self.config)
         	logging.basicConfig(
             		filename=self.config.log['filename'],
             		level=getattr(logging, self.config.log['level']),
