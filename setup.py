@@ -24,7 +24,7 @@ setup(
     author="Pedro Faria",
     author_email="pjfaria.17@est.ucab.edu.ve or pjfariakiddo@gmail.com",
     license="GPLv3",
-    url="https://gitlab.com/ucab-ds/getmymsg",
+    url="https://github.com/SatoshiKiddo/getmymsg_client",
     python_requires='>=2.7',
     packages=find_packages(),
     install_requires=[
