@@ -201,7 +201,7 @@ class Client():
 	def givememsg_cmd(self):
 		logging.info('Iniciando la recepcion del mensaje')
 		try:
-			self.client_sock.send((Client.GIVEMEMSG_CMD + self.config.bind_port_h).encode())
+			self.client_sock.send((Client.GIVEMEMSG_CMD + str(self.config.bind_port_h)).encode())
 			data = self.msgudp_sock.recvfrom(self.msglen)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			validate_msg(info[0])
