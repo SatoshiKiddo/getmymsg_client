@@ -208,7 +208,7 @@ class Client():
 			self.msgudp_sock.close()
 			self.msg = info[1]
 		except Exception as error:
-			logging.warn('Error al intentar solicitar el mensaje : %s' %info[1])
+			logging.warn('Error al intentar solicitar el mensaje')
 			logging.warn(error)
 			raise GiveMsgException()
 		logging.info('Mensaje recibido con exito')
@@ -221,7 +221,7 @@ class Client():
                         info = data.decode('utf-8').strip('\n').split(' ')
                         self.validate_msg(info[0])
                 except Exception as error:
-			logging.warn('Error al intentar chequear el mensaje : %s' %info[1])
+			logging.warn('Error al intentar chequear el mensaje')
 			logging.warn(error)
                         raise ChkMsgException()
                 logging.info('Mensaje comprobado con exito')
