@@ -187,7 +187,7 @@ class Client():
 	def msglen_cmd(self):
 		logging.info('Iniciando solicitud de longitud de mensaje')
 		try:
-			self.conn.send((Client.MSGLEN_CMD).encode())
+			self.client_sock.send((Client.MSGLEN_CMD).encode())
 			data = self.conn.recv(1024)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			self.msglen = info[1]
@@ -201,7 +201,7 @@ class Client():
 	def givememsg_cmd(self):
 		logging.info('Iniciando la recepcion del mensaje')
 		try:
-			self.conn.send((Client.GIVEMEMSG_CMD + self.config.bind_port_h).encode())
+			self.client_sock.send((Client.GIVEMEMSG_CMD + self.config.bind_port_h).encode())
 			data = self.msgudp_sock.recvfrom(self.msglen)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			validate_msg(info[0])
@@ -216,7 +216,7 @@ class Client():
 	def chkmsg_cmd(self):
 		logging.info('Iniciando la comprobacion del mensaje')
                 try:
-                        self.conn.send((Client.CHKMSG_CMD + md5(self.msg)).encode())
+                        self.client_sock.send((Client.CHKMSG_CMD + md5(self.msg)).encode())
                         data = self.conn.recv(1024)
                         info = data.decode('utf-8').strip('\n').split(' ')
                         self.validate_msg(info[0])
