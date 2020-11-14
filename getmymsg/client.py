@@ -208,7 +208,7 @@ class Client():
 			data, addr = self.msgudp_sock.recvfrom(int(self.msglen) + 10)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			self.msgudp_sock.close()
-			self.msg = info[1]
+			self.msg = info
 		except Exception as error:
 			logging.warn('Error al intentar solicitar el mensaje')
 			logging.warn(error)
