@@ -178,8 +178,9 @@ class Client():
 			data = self.conn.recv(1024)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			validate_msg(info)
-		except:
-			logging.warn('Error al identificarse con el servidor : %s' %info[1])
+		except Exception as error:
+			logging.warn('Error al identificarse con el servidor')
+			logging.warn(error)
 			raise IdentificationException()
 		logging.info('Identificacion exitosa con el servidor')
 
@@ -188,10 +189,12 @@ class Client():
 		try:
 			self.conn.send((MSGLEN_CMD).encode())
 			data = self.conn.recv(1024)
-			self.msglen = data.decode('utf-8').strip('\n').split(' ')
+			info = data.decode('utf-8').strip('\n').split(' ')
+			self.msglen = info[1]
 			validate_msg(info)
-		except:
-			logging.warn('Error al intentar solicitar longitud de mensaje : %s' %info[1])
+		except Exception as error:
+			logging.warn('Error al intentar solicitar longitud de mensaje')
+			logging.warn(error)
 			raise MsglenException()
 		logging.info('Longitud establecida con el servidor')
 
@@ -204,8 +207,9 @@ class Client():
 			validate_msg(info)
 			self.msgudp_sock.close()
 			self.msg = info[1]
-		except:
+		except Exception as error:
 			logging.warn('Error al intentar solicitar el mensaje : %s' %info[1])
+			logging.warn(error)
 			raise GiveMsgException()
 		logging.info('Mensaje recibido con exito')
 
@@ -216,8 +220,9 @@ class Client():
                         data = self.conn.recv(1024)
                         info = data.decode('utf-8').strip('\n').split(' ')
                         validate_msg(info)
-                except:
+                except Exception as error:
 			logging.warn('Error al intentar chequear el mensaje : %s' %info[1])
+			logging.warn(error)
                         raise ChkMsgException()
                 logging.info('Mensaje comprobado con exito')
 
@@ -226,7 +231,8 @@ class Client():
                 try:
 			print(self.msg)
 			self.stop()
-                except:
+                except Exception as error:
                         logging.warn('Error al intentar terminar la conexion')
+			logging.warn(error)
                         raise ByeCmdException()
                 logging.info('Conexion terminada con exito')
