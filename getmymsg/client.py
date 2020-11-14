@@ -160,7 +160,7 @@ class Client():
             		exit(0)
 
 	def validate_msg(info):
-		if info[0] != 'OK':
+		if info[0] != 'ok':
 			raise Exception()
 
 	def getmsg(self):
