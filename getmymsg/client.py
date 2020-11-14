@@ -162,6 +162,7 @@ class Client():
 
 	def validate_msg(self, info):
 		if info != 'ok':
+			logging.warn('Error al recibir la respuesta')
 			raise Exception()
 
 	def getmsg(self):
@@ -206,6 +207,7 @@ class Client():
 			logging.info('Longitud de mensaje: ' + self.msglen)
 			data, addr = self.msgudp_sock.recvfrom(int(self.msglen) + 10)
 			info = data.decode('utf-8').strip('\n').split(' ')
+			logging.info('Data: %s' %info)
 			self.validate_msg(info[0])
 			self.msgudp_sock.close()
 			self.msg = info[1]
