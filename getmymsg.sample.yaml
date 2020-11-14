@@ -13,7 +13,6 @@ user: pjfaria.17
 
 # Información para el logger.
 log:
-  filename: getmymsg.log  # Path del archivo de logs
-  level: INFO
-  format: '%(asctime)s %(levelname)s: %(message)s'
-
+	filename: getmymsg.log  # Path del archivo de logs
+	level: INFO
+	format: '%(asctime)s %(levelname)s: %(message)s'
