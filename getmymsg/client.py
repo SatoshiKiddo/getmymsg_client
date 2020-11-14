@@ -104,7 +104,7 @@ class Client():
 	def msgudp_sock(self):
 		if self.__udpsock is None:
 			socket.setdefaulttimeout(2.0)
-			self.__udpsock = socket.socket(socket.AF_INET, SOCK_DGRAM)
+			self.__udpsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 		return self.__udpsock
 	
 	@property
