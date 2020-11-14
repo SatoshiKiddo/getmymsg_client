@@ -85,7 +85,8 @@ class Client():
 	def __init__(self):
 		self.__conf = None
 		self.__sock = None
-
+	
+	@property
 	def config(self):
 		if self.__conf is None:
 			self.__conf = Config()
@@ -221,6 +222,7 @@ class Client():
 	def bye_cmd(self):
 		logging.info('Iniciando la comprobacion del mensaje')
                 try:
+			print(self.msg)
 			self.stop()
                 except:
                         logging.warn('Error al intentar terminar la conexion')
