@@ -85,6 +85,7 @@ class Client():
 	def __init__(self):
 		self.__conf = None
 		self.__sock = None
+		self.__udpsock = None
 	
 	@property
 	def config(self):
