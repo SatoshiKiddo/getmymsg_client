@@ -206,7 +206,7 @@ class Client():
 			logging.info('Longitud de mensaje: ' + self.msglen)
 			data, addr = self.msgudp_sock.recvfrom(int(self.msglen))
 			info = data.decode('utf-8').strip('\n').split(' ')
-			validate_msg(info[0])
+			self.validate_msg(info[0])
 			self.msgudp_sock.close()
 			self.msg = info[1]
 		except Exception as error:
