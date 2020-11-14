@@ -126,6 +126,7 @@ class Client():
 			self.conn = self.client_sock.connect(addr_port)
 		except as error:
 			logging.warn('Se produjo un error de conexion inicial desde %s:%s' % addr_port)
+			print(error)
 			logging.warn(error)
 			raise ConnectionException()
 		self.__working = True
