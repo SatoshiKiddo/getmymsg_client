@@ -1,4 +1,77 @@
-2020-11-14 17:33:47,685 INFO: Iniciando cliente en 10.2.126.2:19876
-2020-11-14 17:33:47,686 WARNING: Se produjo un error de conexion inicial desde 10.2.126.2:19876
-2020-11-14 17:35:29,242 INFO: Iniciando cliente en 10.2.126.2:19876
-2020-11-14 17:35:31,247 WARNING: Se produjo un error de conexion inicial desde 10.2.126.2:19876
+2020-11-14 18:07:41,903 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 18:07:41,903 WARNING: Se produjo un error de conexion inicial desde 10.2.126.2:19876
+2020-11-14 18:11:11,680 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 18:11:11,803 INFO: Conexion creada correctamente
+2020-11-14 18:11:11,803 INFO: Iniciando identificacion con el servidor
+2020-11-14 18:17:25,475 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 18:17:25,666 INFO: Conexion creada correctamente
+2020-11-14 18:17:25,667 INFO: Iniciando identificacion con el servidor
+2020-11-14 18:17:25,667 WARNING: Error al identificarse con el servidor
+2020-11-14 18:17:25,667 WARNING: 'NoneType' object has no attribute 'send'
+2020-11-14 18:58:40,480 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 18:58:40,481 WARNING: Se produjo un error de conexion inicial desde 10.2.126.2:19876
+2020-11-14 18:58:40,482 WARNING: Client instance has no attribute '_Client__udpsock'
+2020-11-14 18:59:39,297 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 18:59:39,414 INFO: Conexion creada correctamente
+2020-11-14 18:59:39,414 INFO: Iniciando identificacion con el servidor
+2020-11-14 18:59:39,414 WARNING: Error al identificarse con el servidor
+2020-11-14 18:59:39,414 WARNING: global name 'IDENTIFICATION_CMD' is not defined
+2020-11-14 19:09:13,484 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 19:09:13,648 INFO: Conexion creada correctamente
+2020-11-14 19:09:13,648 INFO: Iniciando identificacion con el servidor
+2020-11-14 19:09:13,648 WARNING: Error al identificarse con el servidor
+2020-11-14 19:09:13,648 WARNING: global name 'IDENTIFICATION_CMD' is not defined
+2020-11-14 19:12:01,025 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 19:12:01,142 INFO: Conexion creada correctamente
+2020-11-14 19:12:01,143 INFO: Iniciando identificacion con el servidor
+2020-11-14 19:12:01,261 WARNING: Error al identificarse con el servidor
+2020-11-14 19:12:01,261 WARNING: global name 'validate_msg' is not defined
+2020-11-14 19:13:40,234 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 19:13:40,351 INFO: Conexion creada correctamente
+2020-11-14 19:13:40,352 INFO: Iniciando identificacion con el servidor
+2020-11-14 19:13:40,468 WARNING: Error al identificarse con el servidor
+2020-11-14 19:13:40,469 WARNING: validate_msg() takes exactly 1 argument (2 given)
+2020-11-14 19:15:54,794 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 19:15:54,914 INFO: Conexion creada correctamente
+2020-11-14 19:15:54,914 INFO: Iniciando identificacion con el servidor
+2020-11-14 19:15:55,032 WARNING: Error al identificarse con el servidor
+2020-11-14 19:15:55,032 WARNING: validate_msg() takes exactly 1 argument (2 given)
+2020-11-14 19:19:37,085 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 19:19:37,208 INFO: Conexion creada correctamente
+2020-11-14 19:19:37,208 INFO: Iniciando identificacion con el servidor
+2020-11-14 19:19:37,326 INFO: Identificacion exitosa con el servidor
+2020-11-14 19:19:37,327 INFO: Iniciando solicitud de longitud de mensaje
+2020-11-14 19:19:37,327 WARNING: Error al intentar solicitar longitud de mensaje
+2020-11-14 19:19:37,327 WARNING: 'NoneType' object has no attribute 'send'
+2020-11-14 19:21:16,595 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 19:21:16,711 INFO: Conexion creada correctamente
+2020-11-14 19:21:16,711 INFO: Iniciando identificacion con el servidor
+2020-11-14 19:21:16,828 INFO: Identificacion exitosa con el servidor
+2020-11-14 19:21:16,829 INFO: Iniciando solicitud de longitud de mensaje
+2020-11-14 19:21:16,829 WARNING: Error al intentar solicitar longitud de mensaje
+2020-11-14 19:21:16,829 WARNING: 'NoneType' object has no attribute 'recv'
+2020-11-14 19:23:04,567 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 19:23:04,794 INFO: Conexion creada correctamente
+2020-11-14 19:23:04,794 INFO: Iniciando identificacion con el servidor
+2020-11-14 19:23:04,934 INFO: Identificacion exitosa con el servidor
+2020-11-14 19:23:04,935 INFO: Iniciando solicitud de longitud de mensaje
+2020-11-14 19:23:05,051 INFO: Longitud establecida con el servidor
+2020-11-14 19:23:05,051 INFO: Iniciando la recepcion del mensaje
+2020-11-14 19:24:48,588 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 19:24:48,744 INFO: Conexion creada correctamente
+2020-11-14 19:24:48,745 INFO: Iniciando identificacion con el servidor
+2020-11-14 19:24:48,899 INFO: Identificacion exitosa con el servidor
+2020-11-14 19:24:48,899 INFO: Iniciando solicitud de longitud de mensaje
+2020-11-14 19:24:49,054 INFO: Longitud establecida con el servidor
+2020-11-14 19:24:49,055 INFO: Iniciando la recepcion del mensaje
+2020-11-14 19:24:49,055 WARNING: Error al intentar solicitar el mensaje
+2020-11-14 19:24:49,055 WARNING: cannot concatenate 'str' and 'int' objects
+2020-11-14 19:26:39,959 INFO: Iniciando cliente en 10.2.126.2:19876
+2020-11-14 19:26:40,076 INFO: Conexion creada correctamente
+2020-11-14 19:26:40,077 INFO: Iniciando identificacion con el servidor
+2020-11-14 19:26:40,194 INFO: Identificacion exitosa con el servidor
+2020-11-14 19:26:40,194 INFO: Iniciando solicitud de longitud de mensaje
+2020-11-14 19:26:40,312 INFO: Longitud establecida con el servidor
+2020-11-14 19:26:40,312 INFO: Iniciando la recepcion del mensaje
+2020-11-14 19:26:40,312 WARNING: Error al intentar solicitar el mensaje
+2020-11-14 19:26:40,312 WARNING: Client instance has no attribute '_Client__udpsock'

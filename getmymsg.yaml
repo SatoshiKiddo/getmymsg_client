@@ -3,7 +3,7 @@
 max_conn: 5
 
 # IP y puerto para e bind del servidor
-bind_addr_h: 127.0.0.1
+bind_addr_h: 10.2.126.107
 bind_port_h: 19877
 bind_addr: 10.2.126.2
 bind_port: 19876
