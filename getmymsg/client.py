@@ -159,7 +159,7 @@ class Client():
             		self.client_sock.close()
             		exit(0)
 
-	def validate_msg(info):
+	def validate_msg(self, info):
 		if info != 'ok':
 			raise Exception()
 
