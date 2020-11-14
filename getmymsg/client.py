@@ -104,7 +104,7 @@ class Client():
 		if self.__udpsock is None:
 			socket.setdefaulttimeout(2.0)
 			self.__udpsock = socket.socket(socket.AF_INET, SOCK_DGRAM)
-		return self__udpsock
+		return self.__udpsock
 	
 	@property
     	def on_work(self):
@@ -122,7 +122,7 @@ class Client():
         	logging.info('Iniciando cliente en %s:%s' % addr_port)
         	trys = 0
 		try:
-			# self.msgudp_sock.bind(addr_port_h)
+			self.msgudp_sock.bind(addr_port_h)
 			self.conn = self.client_sock.connect(addr_port)
 		except Exception  as error:
 			logging.warn('Se produjo un error de conexion inicial desde %s:%s' % addr_port)
@@ -152,7 +152,7 @@ class Client():
 		if self.on_work:
 	        	self.__working = False
 			try:
-				self.conn.send(BYE_CMD)
+				self.conn.send((BYE_CMD).encode())
 			except:
 				pass
             		time.sleep(2)
@@ -174,8 +174,8 @@ class Client():
 	def identification_cmd(self):
 		logging.info('Iniciando identificacion con el servidor')
 		try:
-			self.conn.send((IDENTIFICATION_CMD + self.config.user).encode())
-			data = self.conn.recv(1024)
+			self.client_sock.send((IDENTIFICATION_CMD + self.config.user).encode())
+			data = self.client_sock.recv(1024)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			validate_msg(info)
 		except Exception as error:
