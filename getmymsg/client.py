@@ -160,7 +160,7 @@ class Client():
             		exit(0)
 
 	def validate_msg(info):
-		if info[0] != 'ok':
+		if info != 'ok':
 			raise Exception()
 
 	def getmsg(self):
@@ -177,7 +177,7 @@ class Client():
 			self.client_sock.send((Client.IDENTIFICATION_CMD + self.config.user).encode())
 			data = self.client_sock.recv(1024)
 			info = data.decode('utf-8').strip('\n').split(' ')
-			self.validate_msg(info)
+			self.validate_msg(info[0])
 		except Exception as error:
 			logging.warn('Error al identificarse con el servidor')
 			logging.warn(error)
@@ -191,7 +191,7 @@ class Client():
 			data = self.conn.recv(1024)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			self.msglen = info[1]
-			self.validate_msg(info)
+			self.validate_msg(info[0])
 		except Exception as error:
 			logging.warn('Error al intentar solicitar longitud de mensaje')
 			logging.warn(error)
@@ -204,7 +204,7 @@ class Client():
 			self.conn.send((Client.GIVEMEMSG_CMD + self.config.bind_port_h).encode())
 			data = self.msgudp_sock.recvfrom(self.msglen)
 			info = data.decode('utf-8').strip('\n').split(' ')
-			validate_msg(info)
+			validate_msg(info[0])
 			self.msgudp_sock.close()
 			self.msg = info[1]
 		except Exception as error:
@@ -219,7 +219,7 @@ class Client():
                         self.conn.send((Client.CHKMSG_CMD + md5(self.msg)).encode())
                         data = self.conn.recv(1024)
                         info = data.decode('utf-8').strip('\n').split(' ')
-                        self.validate_msg(info)
+                        self.validate_msg(info[0])
                 except Exception as error:
 			logging.warn('Error al intentar chequear el mensaje : %s' %info[1])
 			logging.warn(error)
