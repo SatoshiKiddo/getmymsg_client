@@ -124,7 +124,7 @@ class Client():
 		try:
 			# self.msgudp_sock.bind(addr_port_h)
 			self.conn = self.client_sock.connect(addr_port)
-		except as error:
+		except Exception  as error:
 			logging.warn('Se produjo un error de conexion inicial desde %s:%s' % addr_port)
 			print(error)
 			logging.warn(error)
