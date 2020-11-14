@@ -177,7 +177,7 @@ class Client():
 			self.client_sock.send((Client.IDENTIFICATION_CMD + self.config.user).encode())
 			data = self.client_sock.recv(1024)
 			info = data.decode('utf-8').strip('\n').split(' ')
-			validate_msg(info)
+			self.validate_msg(info)
 		except Exception as error:
 			logging.warn('Error al identificarse con el servidor')
 			logging.warn(error)
@@ -191,7 +191,7 @@ class Client():
 			data = self.conn.recv(1024)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			self.msglen = info[1]
-			validate_msg(info)
+			self.validate_msg(info)
 		except Exception as error:
 			logging.warn('Error al intentar solicitar longitud de mensaje')
 			logging.warn(error)
@@ -219,7 +219,7 @@ class Client():
                         self.conn.send((Client.CHKMSG_CMD + md5(self.msg)).encode())
                         data = self.conn.recv(1024)
                         info = data.decode('utf-8').strip('\n').split(' ')
-                        validate_msg(info)
+                        self.validate_msg(info)
                 except Exception as error:
 			logging.warn('Error al intentar chequear el mensaje : %s' %info[1])
 			logging.warn(error)
