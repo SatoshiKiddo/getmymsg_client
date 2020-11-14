@@ -188,7 +188,7 @@ class Client():
 		logging.info('Iniciando solicitud de longitud de mensaje')
 		try:
 			self.client_sock.send((Client.MSGLEN_CMD).encode())
-			data = self.conn.recv(1024)
+			data = self.client_sock.recv(1024)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			self.msglen = info[1]
 			self.validate_msg(info[0])
@@ -217,7 +217,7 @@ class Client():
 		logging.info('Iniciando la comprobacion del mensaje')
                 try:
                         self.client_sock.send((Client.CHKMSG_CMD + md5(self.msg)).encode())
-                        data = self.conn.recv(1024)
+                        data = self.client_sock.recv(1024)
                         info = data.decode('utf-8').strip('\n').split(' ')
                         self.validate_msg(info[0])
                 except Exception as error:
