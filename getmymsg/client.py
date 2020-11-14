@@ -204,7 +204,7 @@ class Client():
 		try:
 			self.client_sock.send((Client.GIVEMEMSG_CMD + str(self.config.bind_port_h)).encode())
 			logging.info('Longitud de mensaje: ' + self.msglen)
-			data, addr = self.msgudp_sock.recvfrom(int(self.msglen))
+			data, addr = self.msgudp_sock.recvfrom(int(self.msglen) + 10)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			self.validate_msg(info[0])
 			self.msgudp_sock.close()
