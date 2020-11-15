@@ -212,8 +212,10 @@ class Client():
 			data_p = self.client_sock.recv(1024)
                         info_p = data_p.decode('utf-8').strip('\n').split(' ')
 			self.validate_msg(info_p[0])
-			data, addr = self.msgudp_sock.recvfrom(65535)
+			data, addr = self.msgudp_sock.recvfrom(4096)
+			logging.info(data)
 			info = data.decode('utf-8').strip('\n').split(' ')
+			logging.info(info[0])
 			self.msgudp_sock.close()
 			self.msg = info[0]
 			# if len(self.msg) != self.msglen:
