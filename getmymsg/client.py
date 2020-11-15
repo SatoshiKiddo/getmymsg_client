@@ -175,7 +175,7 @@ class Client():
 			print(self.msg)
 		except Exception as error:
 			print('Error registrado: ')
-			print(error)
+			print(error.error)
 		
 	def identification_cmd(self):
 		logging.info('Iniciando identificacion con el servidor')
