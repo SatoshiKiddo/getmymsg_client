@@ -214,7 +214,7 @@ class Client():
 			self.validate_msg(info_p[0])
 			data, addr = self.msgudp_sock.recvfrom(4096)
 			self.msgudp_sock.close()
-			self.msg = data
+			self.msg = base64.b64decode(data).decode('utf-8').strip('\n').split(' ')[0]
 			logging.info('Comparacion de longitudes: ')
 			logging.info(self.msglen)
 			logging.info(len(self.msg))
