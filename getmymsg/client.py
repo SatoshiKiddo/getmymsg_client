@@ -166,12 +166,16 @@ class Client():
 			raise Exception()
 
 	def getmsg(self):
-		self.identification_cmd()
-		self.msglen_cmd()
-		self.givememsg_cmd()
-		self.chkmsg_cmd()
-		self.bye_cmd()
-		print(self.msg)
+		try:
+			self.identification_cmd()
+			self.msglen_cmd()
+			self.givememsg_cmd()
+			self.chkmsg_cmd()
+			self.bye_cmd()
+			print(self.msg)
+		except Exception as error:
+			print('Error registrado: ')
+			print(error)
 		
 	def identification_cmd(self):
 		logging.info('Iniciando identificacion con el servidor')
@@ -208,7 +212,7 @@ class Client():
 			data_p = self.client_sock.recv(1024)
                         info_p = data_p.decode('utf-8').strip('\n').split(' ')
 			self.validate_msg(info_p[0])
-			data, addr = self.msgudp_sock.recvfrom(int(self.msglen) + 10)
+			data, addr = self.msgudp_sock.recvfrom(int(self.msglen))
 			info = data.decode('utf-8').strip('\n').split(' ')
 			self.msgudp_sock.close()
 			self.msg = info[0]
