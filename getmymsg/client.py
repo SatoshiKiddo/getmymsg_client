@@ -224,7 +224,7 @@ class Client():
 	def chkmsg_cmd(self):
 		logging.info('Iniciando la comprobacion del mensaje')
                 try:
-                        self.client_sock.send((Client.CHKMSG_CMD + str(md5(self.msg.encode()))).encode())
+                        self.client_sock.send((Client.CHKMSG_CMD + md5(self.msg.encode()).hexdigest()).encode())
                         data = self.client_sock.recv(1024)
                         info = data.decode('utf-8').strip('\n').split(' ')
                         self.validate_msg(info[0])
