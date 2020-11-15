@@ -148,12 +148,12 @@ class Client():
 		self.getmsg()	
         	return 0
 
-	def stop(self, sig, frame):
+	def stop(self):
 		# Manejo de salida del programa
 		if self.on_work:
 	        	self.__working = False
 			try:
-				self.conn.send((BYE_CMD).encode())
+				self.client_sock.send((BYE_CMD).encode())
 			except:
 				pass
             		time.sleep(2)
