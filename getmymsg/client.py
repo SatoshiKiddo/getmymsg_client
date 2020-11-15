@@ -162,7 +162,7 @@ class Client():
 
 	def validate_msg(self, info):
 		if info != 'ok':
-			logging.warn('Error al recibir la respuesta')
+			logging.warn('Error al validar la respuesta')
 			raise Exception()
 
 	def getmsg(self):
