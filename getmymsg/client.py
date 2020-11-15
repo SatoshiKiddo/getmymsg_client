@@ -215,6 +215,9 @@ class Client():
 			data, addr = self.msgudp_sock.recvfrom(4096)
 			self.msgudp_sock.close()
 			self.msg = data
+			logging.info('Comparacion de longitudes: ')
+			logging.info(self.msglen)
+			logging.info(len(self.msg))
 			if len(self.msg) != self.msglen:
 				raise Exception('Mensaje incompleto')
 		except Exception as error:
