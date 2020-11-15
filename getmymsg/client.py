@@ -215,13 +215,6 @@ class Client():
 			data, addr = self.msgudp_sock.recvfrom(4096)
 			self.msgudp_sock.close()
 			self.msg = base64.b64decode(data).decode('utf-8')
-			logging.info(self.msg)
-			logging.info(data)
-			logging.info('Comparacion de longitudes: ')
-			logging.info(self.msglen)
-			logging.info(len(self.msg))
-			if len(self.msg) != self.msglen:
-				raise Exception('Mensaje incompleto')
 		except Exception as error:
 			logging.warn('Error al intentar solicitar el mensaje')
 			logging.warn(error)
