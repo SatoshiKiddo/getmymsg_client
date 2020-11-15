@@ -212,7 +212,7 @@ class Client():
 			data_p = self.client_sock.recv(1024)
                         info_p = data_p.decode('utf-8').strip('\n').split(' ')
 			self.validate_msg(info_p[0])
-			data, addr = self.msgudp_sock.recvfrom(1024)
+			data, addr = self.msgudp_sock.recvfrom(65535)
 			info = data.decode('utf-8').strip('\n').split(' ')
 			self.msgudp_sock.close()
 			self.msg = info[0]
