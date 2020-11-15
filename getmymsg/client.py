@@ -216,8 +216,8 @@ class Client():
 			info = data.decode('utf-8').strip('\n').split(' ')
 			self.msgudp_sock.close()
 			self.msg = info[0]
-			if len(self.msg) != self.msglen:
-				raise Exception('Mensaje incompleto')
+			# if len(self.msg) != self.msglen:
+			#	raise Exception('Mensaje incompleto')
 		except Exception as error:
 			logging.warn('Error al intentar solicitar el mensaje')
 			logging.warn(error)
