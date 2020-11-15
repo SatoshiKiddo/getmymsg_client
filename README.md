@@ -13,11 +13,11 @@ $ pip install git+https://github.com/SatoshiKiddo/getmymsg_client
 # Uso
 
 Es necesario generar el archivo `getmymsg.yaml`. El archivo
-[`getmymsg.sample.yaml`](https://github.com/SatoshiKiddo/getmymsg_client/blob/master/getmymsg.sample.yaml)
+[`getmymsg.yaml`](https://github.com/SatoshiKiddo/getmymsg_client/blob/master/getmymsg.yaml)
 contiene un ejemplo del contenido.
 
 Ejecución:
 
 ```
-$ getmymsg_client
+$ getmymsg-client
 ```
