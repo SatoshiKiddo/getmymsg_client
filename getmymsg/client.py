@@ -237,7 +237,9 @@ class Client():
 	def bye_cmd(self):
 		logging.info('Iniciando la comprobacion del mensaje')
                 try:
+			print('MENSAJE:')
 			print(self.msg)
+			print('____________')
 			self.stop()
                 except Exception as error:
                         logging.warn('Error al intentar terminar la conexion')
